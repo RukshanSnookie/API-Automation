@@ -1,5 +1,6 @@
 package com.api.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
@@ -17,6 +18,8 @@ public class LoginAPITest {
 				.body("{\r\n" + "  \"username\": \"uday1234\",\r\n" + "  \"password\": \"uday1234\"\r\n" + "}");
 		Response response = z.post("/api/auth/login");
 		System.out.println(response.asPrettyString());
+
+		Assert.assertEquals(response.getStatusCode(), 200);
 	}
 
 }
