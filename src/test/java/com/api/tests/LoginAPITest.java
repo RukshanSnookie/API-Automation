@@ -20,6 +20,7 @@ public class LoginAPITest {
 		System.out.println(response.asPrettyString());
 
 		Assert.assertEquals(response.getStatusCode(), 200);
+		//this needs to update with coding best practices
 	}
 
 }
