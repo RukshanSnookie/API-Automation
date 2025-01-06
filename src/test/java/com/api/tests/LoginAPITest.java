@@ -13,9 +13,9 @@ public class LoginAPITest {
 	public void loginTest() {
 		RestAssured.baseURI = "http://64.227.160.186:8080";
 
-		RequestSpecification z = RestAssured.given().header("Content-Type", "application/json")
-				.body("{\r\n" + "  \"username\": \"uday1234\",\r\n" + "  \"password\": \"uday1234\"\r\n" + "}");
-		Response response = z.post("/api/auth/login");
+		Response response = RestAssured.given().header("Content-Type", "application/json")
+				.body("{\r\n" + "  \"username\": \"uday1234\",\r\n" + "  \"password\": \"uday1234\"\r\n" + "}")
+				.post("/api/auth/login");
 		System.out.println(response.asPrettyString());
 
 		Assert.assertEquals(response.getStatusCode(), 200);
