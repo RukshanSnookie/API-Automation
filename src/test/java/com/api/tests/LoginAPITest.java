@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.api.base.AuthService;
+import com.api.models.request.LoginRequest;
 
 import io.restassured.response.Response;
 
@@ -14,11 +15,10 @@ public class LoginAPITest {
 //		Response response = given().baseUri("http://64.227.160.186:8080").header("Content-Type", "application/json")
 //				.body("{\r\n" + "  \"username\": \"uday1234\",\r\n" + "  \"password\": \"uday1234\"\r\n" + "}")
 //				.post("/api/auth/login");
-		
-		
+
+		LoginRequest loginRequest = new LoginRequest("uday1234", "uday1234");
 		AuthService authService = new AuthService();
-		Response response = authService
-				.login("{\r\n" + "  \"username\": \"uday1234\",\r\n" + "  \"password\": \"uday1234\"\r\n" + "}");
+		Response response = authService.login(loginRequest);
 
 		System.out.println(response.asPrettyString());
 

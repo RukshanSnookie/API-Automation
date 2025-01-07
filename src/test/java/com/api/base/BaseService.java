@@ -1,6 +1,6 @@
 package com.api.base;
 
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -19,7 +19,7 @@ public class BaseService { // wrapper for RestAssuared
 		requestSpecification = given().baseUri(BASE_URL);
 	}
 
-	protected Response postRequest(String payload, String endpoint) {
-		return requestSpecification.contentType(ContentType.JSON).body(payload).post(endpoint);
+	protected Response postRequest(Object loginRequest, String endpoint) {
+		return requestSpecification.contentType(ContentType.JSON).body(loginRequest).post(endpoint);
 	}
 }
