@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import com.api.base.AuthService;
 import com.api.models.request.LoginRequest;
+import com.api.models.response.LoginResponse;
 
 import io.restassured.response.Response;
 
@@ -22,7 +23,10 @@ public class LoginAPITest {
 
 		System.out.println(response.asPrettyString());
 
-		Assert.assertEquals(response.getStatusCode(), 200);
+		LoginResponse loginResponse = response.as(LoginResponse.class);
+		System.out.println(loginResponse.getId());
+		
+		Assert.assertEquals(loginResponse.getId(), 3);
 	}
 
 }
