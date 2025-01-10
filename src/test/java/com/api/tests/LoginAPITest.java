@@ -24,8 +24,9 @@ public class LoginAPITest {
 		System.out.println(response.asPrettyString());
 
 		LoginResponse loginResponse = response.as(LoginResponse.class);
-		System.out.println(loginResponse.getId());
+		System.out.println("Id = " + loginResponse.getId());
 		
+		Assert.assertTrue(loginResponse.getToken() != null);
 		Assert.assertEquals(loginResponse.getId(), 3);
 	}
 
