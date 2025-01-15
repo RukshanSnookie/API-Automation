@@ -8,9 +8,7 @@ import io.restassured.specification.RequestSpecification;
 
 public class BaseService { // wrapper for RestAssuared
 
-	// base Uri
-	// Creating the request
-//	Handling the response
+//all the common things
 
 	private static final String BASE_URL = "http://64.227.160.186:8080";
 	private RequestSpecification requestSpecification;
